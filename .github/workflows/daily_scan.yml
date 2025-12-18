@@ -1,0 +1,28 @@
+name: SPY Daily Scan
+
+on:
+  schedule:
+    # Runs at 19:55 UTC (Which is 2:55 PM EST / 1:55 PM CST)
+    # Note: Cloud clocks are in UTC!
+    - cron: '55 19 * * 1-5' 
+  workflow_dispatch: # Allows you to click a button to run it manually for testing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Run Script
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python main.py
