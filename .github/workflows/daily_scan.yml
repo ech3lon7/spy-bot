@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs at 19:55 UTC (Which is 2:55 PM EST / 1:55 PM CST)
     # Note: Cloud clocks are in UTC!
-    - cron: '55 19 * * 1-5' 
+    - cron: '35 19 * * 1-5' 
   workflow_dispatch: # Allows you to click a button to run it manually for testing
 
 jobs:
