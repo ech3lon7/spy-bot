@@ -3,7 +3,7 @@ name: SPY Daily Scan
 on:
   schedule:
     # Runs at 19:55 UTC (Which is 2:55 PM EST / 1:55 PM CST)
-    - cron: '45 19 * * 1-5' 
+    - cron: '45 20 * * 1-5' 
   workflow_dispatch: 
 
 jobs:
